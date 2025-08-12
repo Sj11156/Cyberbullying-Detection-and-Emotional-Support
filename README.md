@@ -28,7 +28,9 @@ Deployment: Docker, REST APIs
 
 Other: TF-IDF, Logistic Regression, Sentiment Analysis
 
-Methodology
+Methodology:
+
+
 Data Collection: Gather datasets from social media APIs & labeled cyberbullying datasets.
 
 Preprocessing: Text cleaning, tokenization, lemmatization, stopword removal, and TF-IDF vectorization.
