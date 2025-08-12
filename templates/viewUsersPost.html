@@ -1,0 +1,315 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>        {% load static %}
+
+  <title>FaceClone</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  
+</head>
+<body  style="background-color: #edeff5;"> 
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+       <div class="navbar-header"> <a class="navbar-brand" href="index.html">FaceClone</a> </div>
+       <div class="navbar-header" style="float: right;margin-top: 8px;">
+        <form  method="POST" action="/laction/">         {% csrf_token %}
+
+          <div>
+            <input type="text" name="lg" placeholder="Username" style="color: black;border-radius: 6px;font-style: oblique;" required>
+         
+            <input type="password" name="p" placeholder="Password" style="color: black;border-radius: 6px;font-style: oblique;"required>
+         
+            <input class="btn btn-primary" type="submit" name="login" value="Login"style="border-radius: 18px;">
+          </div>
+        </form>      </div>
+    </div>
+  </nav>
+
+
+
+  <main class="container">
+  <h1 class="text-center">Welcome to FaceClone! </h1>
+
+    <div class="row">
+      <div class="col-md-5">
+        <h3 style="color: black;font-size: 22px;">Facebook helps you connect and share with the people in your life.</h3>
+       <img src="/static/img/56.png">
+      </div>
+      <div class="col-md-1">
+       
+      </div>
+      <div class="col-md-6">
+        
+        <h3>Create an account</h3>
+        <h5>It's quick and easy.</h5>
+
+        <form method="GET" action="/regaction/">
+          <div class="form-group">
+            <input class="form-control" type="text" name="Name" placeholder="Name" style="color: black;font-weight: bold;font-style: oblique;" required>
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" type="text" name="Mob" minlength="10" maxlength="10" placeholder="Mobile number" style="color: black;font-weight: bold;font-style: oblique;" required>
+          </div>
+           <div class="form-group">
+            <input class="form-control" type="email" name="Email" placeholder="Email" style="color: black;font-weight: bold;font-style: oblique;" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="date" name="Dob" style="font-weight: bold;padding-top: 1px;"required>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="gender" value="male"> Male &nbsp; <input type="radio" value="female" name="gender"> Female
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="password" name="Password" placeholder="Password" minlength="5" required>
+          </div>
+
+          <div class="form-group">
+            <input class="btn btn-success" type="submit" name="register" value="Register">
+          </div>
+        </form>
+    
+      </div>
+    </div>
+  </main>
+
+
+
+  <footer class="container text-center">
+    <ul class="nav nav-pills pull-right">
+      
+    </ul>
+  </footer>
+
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>CyberWorld - User Login & Registration</title>
+     {% load static %}
+     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 0;
+             display: flex;
+             flex-direction: column;
+             justify-content: space-between;
+             align-items: center;
+             min-height: 100vh;
+             background: url('{% static "images/ss.jpg" %}') no-repeat center center;
+             background-size: cover;
+             height: 800px;
+         }
+         header {
+             width: 100%;
+             background: rgba(0, 0, 0, 0.7);
+             padding: 15px;
+             text-align: center;
+             color: white;
+             font-size: 1.5em;
+         }
+         .navbar {
+             background: rgba(48, 34, 34, 0.8);
+             padding: 15px;
+             backdrop-filter: blur(10px);
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             width: 100%;
+         }
+         .navbar a {
+             text-decoration: none;
+             color: #d3e9f4;
+             font-weight: bold;
+             padding: 10px 15px;
+             border-radius: 5px;
+             transition: background 0.3s, color 0.3s;
+         }
+         .navbar a:hover {
+             background: rgba(255, 255, 255, 0.3);
+             color: white;
+         }
+         .login-form {
+             display: flex;
+             gap: 10px;
+         }
+         .login-form input {
+             padding: 8px;
+             border: none;
+             border-radius: 5px;
+         }
+         .login-form input[type="submit"] {
+             background: #007bff;
+             color: white;
+             font-weight: bold;
+             cursor: pointer;
+         }
+         main {
+             flex-grow: 1;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 100%;
+             text-align: center;
+         }
+         .form-container {
+             background: rgba(22, 71, 110, 0.6);
+             padding: 20px;
+             border-radius: 10px;
+             color: rgb(18, 16, 16);
+             backdrop-filter: blur(10px);
+             width: 1000px;
+             margin: auto;
+             text-align: center;
+             max-height: 550px;
+             overflow-y: auto;
+         }
+         .form-container table {
+             width: 100%;
+             border-collapse: collapse;
+             margin-top: 2em;
+             background: rgba(255, 255, 255, 0.1);
+             border-radius: 8px;
+         }
+         .form-container th {
+             background: rgba(0, 0, 0, 0.3);
+             padding: 12px;
+             font-size: 14px;
+             text-transform: uppercase;
+             border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+         }
+         .form-container tr {
+             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+         }
+         .form-container td {
+             padding: 10px;
+             font-size: 14px;
+             text-align: center;
+         }
+         .form-container tr:nth-child(even) {
+             background: rgba(255, 255, 255, 0.15);
+         }
+         .form-container a.text-danger {
+             color: #ff4c4c;
+             font-weight: bold;
+             text-decoration: none;
+         }
+         .form-container a.text-danger:hover {
+             color: #ff1a1a;
+             text-decoration: underline;
+         }
+         input, textarea {
+             width: 100%;
+             padding: 8px;
+             border: none;
+             border-radius: 5px;
+         }
+         input[type="submit"] {
+             background: #5572e9;
+             color: white;
+             font-weight: bold;
+             cursor: pointer;
+             padding: 10px;
+         }
+         input[type="submit"]:hover {
+             background: #260c78;
+         }
+         footer {
+             width: 100%;
+             background: rgba(0, 0, 0, 0.7);
+             color: white;
+             text-align: center;
+             padding: 10px;
+             position: fixed;
+             bottom: 0;
+         }
+         @media (max-width: 600px) {
+             .navbar {
+                 flex-direction: column;
+                 align-items: center;
+             }
+             .login-form {
+                 flex-direction: column;
+             }
+         }
+     </style>
+     <script type="text/javascript">
+         function preventBack() {
+             window.history.forward();
+         }
+         setTimeout("preventBack()", 0);
+         window.onunload = function () { null };
+     </script>
+ </head>
+ <body>
+     <header>
+         CyberWorld
+     </header>
+     <div class="navbar">
+         <a href="/adminhome/">Home</a>
+         <a href="/care/">Caretakers</a>
+         <a href="/careview/">View Caretakers</a>
+         <a href="/viewUsersPost/">View Post</a>
+         <a href="/vblock/">Blocking Users</a>
+         <a href="/index/">Logout</a>
+     </div>
+     <main>
+         <div class="form-container">
+             <h1 class="text-center">Welcome to CyberWorld Members!</h1>
+             <table border="2">
+                 <tr>
+                     <th>Id</th>
+                     <th>User ID</th>
+                     <th>Name</th>
+                     <th>Post</th>
+                     <th>Posted Date</th>
+                     <th>Emotion</th>
+                     <th>Delete</th>
+                     <th>Assign Caretaker</th>
+                 </tr>
+                 {% for f in usq %}
+                 <tr>
+                     <td>{{ f.id }}</td>
+                     <td>{{ f.userid }}</td>
+                     <td>{{ f.nme }}</td>
+                     <td>{{ f.post }}</td>
+                     <td>{{ f.date }}</td>
+                     <td>{{ f.prediction }}</td>
+                     <td><a class="text-danger" href="/delUpost?id={{ f.id }}&na={{ f.userid }}">[Delete]</a></td>
+                     <td>
+                         {% if f.prediction == "Sad" %}
+                         <form action="/assign/">
+                             <input type="hidden" name="userid" value="{{ f.userid }}">
+                             <select name="id" required>
+                                 <option value="" disabled selected>Choose Caretaker</option>
+                                 {% for j in cr %}
+                                 <option value="{{ j.email }}">{{ j.name }}</option>
+                                 {% endfor %}
+                             </select>
+                             <br><br>
+                             <input type="submit" value="Assign">
+                         </form>
+                         {% else %}
+                             ---
+                         {% endif %}
+                     </td>
+                 </tr>
+                 {% endfor %}
+             </table>
+         </div>
+     </main>
+ </body>
+ </html>
+ 

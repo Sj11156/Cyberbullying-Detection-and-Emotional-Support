@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>post</th><th>id</th>
+        </tr>
+        {% for s in stu %}
+        <tr>
+            <td>{{s.post}}</td>
+            <td>{{s.id}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

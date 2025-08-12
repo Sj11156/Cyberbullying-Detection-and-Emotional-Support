@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>        {% load static %}
+
+  <title>CyberWorld</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  
+</head>
+<body  style="background-color: #edeff5;"> <!--background-image: url('/static/img/map_facebook.jpg');-->
+  <!-- nav -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+       <div class="navbar-header"> <a class="navbar-brand" href="index.html">CyberWorld</a> </div>
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/userhome/">Home</a></li>
+        <li><a href="/postadd/">Post</a></li>
+        <li><a href="/group/">Create Group</a></li>
+        <li><a href="/message/">Message</a></li>
+        <li><a href="/profile/">Profile</a></li>
+        <li><a href="/index/">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ./nav -->
+
+  <!-- main -->
+  <main class="container">
+  <h1 class="text-center">Welcome to cyberworld! </h1>
+
+    <div class="row">
+      <div class="col-md-5">
+       <img src="/static/img/132.png">
+      </div>
+      <div class="col-md-1">
+       
+      </div>
+      <div class="col-md-6">
+        
+        <h3>Create Group</h3>
+
+        <!-- register form -->
+        <form method="GET" action="/gaction/">
+          <div class="form-group">
+            <input class="form-control" type="text" name="groupname" placeholder="Group Name" style="color: black;font-weight: bold;font-style: oblique;" required>
+          </div>
+          {% for s in list1 %}
+          <div class="form-group">
+            <input class="form-control" type="text" name="adminname"  value="{{s.name}}" style="color: black;font-weight: bold;font-style: oblique;" required>
+            <input class="form-control" type="hidden" name="admail"  value="{{s.email}}" style="color: black;font-weight: bold;font-style: oblique;" required>
+          </div> {% endfor %}
+
+           <div class="form-group">
+            <input class="form-control" type="text" name="mission" placeholder="mission" style="color: black;font-weight: bold;font-style: oblique;" required>
+          </div>
+          
+          
+          <div class="form-group">
+            <input class="form-control" type="text" name="description" placeholder="description" style="color: black;font-weight: bold;font-style: oblique;"  required>
+          </div>
+
+          <div class="form-group">
+            <input class="btn btn-success" type="submit" name="register" value="Create">
+          </div>
+        </form>
+        <!-- ./register form -->
+      </div>
+    </div>
+  </main>
+  <!-- ./main -->
+
+  <!-- footer -->
+  <footer class="container text-center">
+    <ul class="nav nav-pills pull-right">
+      
+    </ul>
+  </footer>
+  <!-- ./footer -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

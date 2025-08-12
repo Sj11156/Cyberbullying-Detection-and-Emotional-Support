@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+            <th>id</th><th>name</th><th>description</th><th>adminname</th>
+        </tr>
+        {% for s in usr %}
+        <tr>
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.description}}</td>
+            <td>{{s.adminname}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

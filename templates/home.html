@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Classifier App</title>
+</head>
+<body>
+    <h1>Emotion Detection in Text</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="raw_text" rows="5" cols="50"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Original Text</h2>
+        <p>{{ raw_text }}</p>
+        <h2>Prediction</h2>
+        <p>{{ prediction }}: {{ emoji_icon }}</p>
+        <h2>Confidence</h2>
+        <p>{{ probability|first }}</p>
+    {% endif %}
+</body>
+</html>
